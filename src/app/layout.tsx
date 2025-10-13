@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono, Manrope } from 'next/font/google';
+import { JetBrains_Mono, Manrope, Roboto_Condensed } from 'next/font/google';
 
 import './globals.css';
 
@@ -9,6 +9,10 @@ const ManropeSans = Manrope({
 });
 const JetBrainsMono = JetBrains_Mono({
 	variable: '--font-jetbrains-mone',
+	subsets: ['latin'],
+});
+const RobotoCondensed = Roboto_Condensed({
+	variable: '--font-roboto-cond',
 	subsets: ['latin'],
 });
 
@@ -29,7 +33,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${ManropeSans.variable} ${JetBrainsMono.variable} antialiased`}>
+			<body
+				className={`${ManropeSans.variable} ${JetBrainsMono.variable} ${RobotoCondensed.variable} antialiased`}
+			>
 				{children}
 			</body>
 		</html>

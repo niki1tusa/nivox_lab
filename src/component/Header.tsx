@@ -1,10 +1,11 @@
 import Image from 'next/image';
 
-import { NAV_DATA } from './nav.data';
+import { NAV_DATA } from '../data/nav.data';
+import Link from 'next/link';
 
 export default function Header() {
 	return (
-		<div className='flex items-center justify-between w-full'>
+		<div className='flex w-full items-center justify-between'>
 			<div className='relative h-[100px] w-[100px]'>
 				<Image fill alt='logo' src='/logo/logoDark.png' className='absolute' />
 			</div>
@@ -14,7 +15,10 @@ export default function Header() {
 				))}
 			</nav>
 			<div>
-				theme-toggle
+				<Link href='https://github.com/niki1tusa/nivox_lab'>
+					<Image width={30} height={30} alt='github-icon' src='/icons/github.svg' />
+				</Link>
+				{/* theme-toggle */}
 			</div>
 		</div>
 	);

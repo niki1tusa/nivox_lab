@@ -51,6 +51,7 @@
 	/* fonts */
 	--font-sans: var(--font-manrope);
 	--font-mono: var(--font-jetbrains-mono);
+	--font-heading: var(--font-roboto-cond)
 }
 body {
 	background: var(--background);
@@ -58,4 +59,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+button, input, textarea{
+	cursor: pointer
 }
