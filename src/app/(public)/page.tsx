@@ -1,9 +1,10 @@
 import { Play } from 'lucide-react';
 
 import Accordion from '@/component/Accordion';
-import Button from '@/component/Button';
+// import Button from '@/component/Button';
 import Chart from '@/component/Chart';
 import Title from '@/component/Title';
+import { Button } from '@/component/export-component/Button';
 
 // Landing
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
 				<span className='text-foreground-muted'>Nivox Lab</span> - is a library of ready-made
 				<br /> ui blocks to speed up development
 			</span>
-			<Button>
+			<Button color='blue' animate='fadeIn'>
 				Get started <Play size={18}/>
 			</Button>
 			<div className='mt-5'>

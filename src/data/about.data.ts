@@ -3,7 +3,10 @@ export interface IAboutItem {
 	heading: string;
 	title: string;
 }
-
+//icon: , title: join tailwindcss + framer-motion
+// icon: , title: more variants animate
+// icon: , title: development speed
+// icon: , title: adaptive component
 export const ABOUT_DATA: IAboutItem[] = [
 	{
 		id: 1,

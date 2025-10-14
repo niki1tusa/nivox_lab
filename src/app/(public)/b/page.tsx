@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import ClientPage from './[id]/ClientPage'
 
 
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 }
 
 export default function BlocksPage() {
-    return <div></div>
+    return <ClientPage/>
 }
