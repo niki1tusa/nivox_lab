@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 const colorMap = {
@@ -28,6 +29,8 @@ interface Props {
 	textSize?: '1' | '2';
 	color?: keyof typeof colorMap;
 	animate?: keyof typeof animateVariants;
+	loading?: boolean;
+	disabled?: boolean;
 }
 
 export const Button = ({
@@ -37,11 +40,14 @@ export const Button = ({
 	textSize = '1',
 	color = 'neutral',
 	animate,
+	loading,
+	disabled,
 }: Props) => {
 	const variant = animate ? animateVariants[animate] : undefined;
 	return (
 		<AnimatePresence>
 			<motion.button
+				disabled={disabled}
 				initial={variant?.initial}
 				animate={variant?.animate}
 				className={clsx(
@@ -52,7 +58,7 @@ export const Button = ({
 				)}
 				type={type}
 			>
-				{children}
+				{loading ? <Loader2 color='gray' size={20} /> : children}
 			</motion.button>
 		</AnimatePresence>
 	);

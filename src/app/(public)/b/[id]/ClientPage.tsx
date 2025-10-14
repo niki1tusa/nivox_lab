@@ -1,6 +1,10 @@
+'use client';
+
+import { Highlight, themes } from 'prism-react-renderer';
+
 import Title from '@/component/Title';
 import { Button } from '@/component/export-component/Button';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+
 export default function ClientPage() {
 	const code = `'use client';
 
@@ -74,11 +78,14 @@ export const Button = ({
 			<div className='flex h-full flex-col gap-5'>
 				<Title>Code</Title>
 				<hr />
-				<Highlight {...defaultProps} code={code} language="tsx" >
+				<Highlight code={code} language='tsx' theme={themes.duotoneDark}>
 					{({ className, style, tokens, getLineProps, getTokenProps }) => (
-						<pre className={`${className} rounded p-4 overflow-y-auto h-[300px] font-mono`} style={style}>
+						<pre
+							className={`${className} h-[300px] overflow-y-auto rounded p-4 font-mono`}
+							style={style}
+						>
 							{tokens.map((line, i) => (
-								<div key={i} {...getLineProps({ line, key: i })}>
+								<div key={`${i}-`} {...getLineProps({ line, key: i })}>
 									{line.map((token, key) => (
 										<span key={key} {...getTokenProps({ token, key })} />
 									))}
