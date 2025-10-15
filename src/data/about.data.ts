@@ -1,29 +1,14 @@
+import { CircleGauge, Link, LucideIcon, MonitorSmartphone, PackageOpen } from 'lucide-react';
+
 export interface IAboutItem {
 	id: number;
-	heading: string;
+	icon: LucideIcon;
 	title: string;
 }
-//icon: , title: contain tailwindcss + framer-motion
-// icon: , title: more variants animate
-// icon: , title: development speed
-// icon: , title: adaptive component
+
 export const ABOUT_DATA: IAboutItem[] = [
-	{
-		id: 1,
-		heading: 'We build tools for creators',
-		title:
-			'At Nivox Lab, we empower designers and developers to transform ideas into polished, functional interfaces — fast, intuitive, and fun.',
-	},
-	{
-		id: 2,
-		heading: 'Design smarter, not harder',
-		title:
-			'Mix, match, and customize components in seconds. Our mission is to remove friction, so you can focus on what truly matters — creating.',
-	},
-	{
-		id: 3,
-		heading: 'Launch with confidence',
-		title:
-			'Download clean, production-ready code and bring your product to life. From concept to launch, Nivox Lab has your UI covered.',
-	},
+	{ id: 1, icon: Link, title: 'tailwindcss + motion' },
+	{ id: 2, icon: PackageOpen, title: 'from the box' },
+	{ id: 3, icon: CircleGauge, title: 'dev speed' },
+	{ id: 4, icon: MonitorSmartphone, title: 'adaptive' },
 ];
