@@ -3,9 +3,9 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
-import { ABOUT_DATA } from '../data/about.data';
 
-export default function Accordion() {
+
+export default function Accordion({data}:{data: any[]}) {
 	const [aboutList, setAboutList] = useState<Set<number>>(new Set());
 	const toggleOpen = (id: number) => {
 		setAboutList(prev => {
@@ -16,7 +16,7 @@ export default function Accordion() {
 	};
 	return (
 		<ul className='flex w-[500px] flex-col gap-2 rounded p-2'>
-			{ABOUT_DATA.map(item => (
+			{data.map(item => (
 				<li key={item.id} className='border-edge flex flex-col border-b'>
 					<div className='flex items-center justify-between'>
 						<span className='font-bold'>{item.heading}</span>

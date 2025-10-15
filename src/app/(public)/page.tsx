@@ -1,29 +1,25 @@
 import { Play } from 'lucide-react';
 
-import Accordion from '@/component/Accordion';
-// import Button from '@/component/Button';
 import Chart from '@/component/Chart';
 import Title from '@/component/Title';
-import { Button } from '@/component/export-component/Button';
+import { Button } from '@/component/export-component/button/Button';
 
 // Landing
 export default function Home() {
 	return (
 		<div className='flex h-screen flex-col items-center gap-5'>
-			
 			<span className='text-2xl font-bold 2xl:text-5xl'>
 				<span className='text-foreground-muted'>Nivox Lab</span> - is a library of ready-made
 				<br /> ui blocks to speed up development
 			</span>
 			<Button color='blue' animate='fadeIn'>
-				Get started <Play size={18}/>
+				Get started <Play size={18} />
 			</Button>
 			<div className='mt-5'>
 				<Title>About Us</Title>
 				{/* accordion */}
-				<Accordion />
 			</div>
-			<div className='mt-5 h-[300px] w-[700px]'>
+			<div className='mt-5 h-[300px] w-full'>
 				<Title>Boost development with Nivox Lab</Title>
 				<Chart />
 			</div>

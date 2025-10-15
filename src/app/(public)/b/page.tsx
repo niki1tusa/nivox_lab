@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ClientPage from './[id]/ClientPage'
+import ClientPage from './ClientPage'
 
 
 export const metadata: Metadata = {
