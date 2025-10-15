@@ -6,6 +6,7 @@ import { BLOCKS_DATA } from '@/data/blocks.data';
 interface Props {
 	children: React.ReactNode;
 }
+export const ON_THIS_PAGE_DATA = ['Preview', 'How to use', 'Custom details'];
 export default function layout({ children }: Props) {
 	return (
 		<div className='grid grid-cols-[1fr_2fr_1fr]'>
@@ -20,8 +21,13 @@ export default function layout({ children }: Props) {
 				</div>
 			</div>
 			{children}
-			<div className='flex justify-end'>
-				<Title>On this page</Title>
+			<div className='items-left flex flex-col gap-2'>
+				<div className='text-2xl font-bold'>On this page</div>
+				<ul>
+					{ON_THIS_PAGE_DATA.map((item, i) => (
+						<li key={i}>{item}</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	);

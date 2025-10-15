@@ -10,7 +10,7 @@ export default function MenuTab({ value, setValue }: Props) {
 			<span
 				onClick={() => setValue('preview')}
 				className={clsx(
-					'flex items-center justify-center rounded px-2 py-1',
+					'flex cursor-pointer items-center justify-center rounded px-2 py-1',
 					value === 'preview' && 'bg-edge'
 				)}
 			>
@@ -19,7 +19,7 @@ export default function MenuTab({ value, setValue }: Props) {
 			<span
 				onClick={() => setValue('code')}
 				className={clsx(
-					'flex items-center justify-center rounded px-2 py-1',
+					'flex cursor-pointer items-center justify-center rounded px-2 py-1',
 					value === 'code' && 'bg-edge'
 				)}
 			>

@@ -1,8 +1,8 @@
-	export const code = `'use client';
+export const code = `'use client';
 
 import clsx from 'clsx';
 import { Loader2 } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
+import { , motion } from 'motion/react';
 
 import { animateVariants } from '../../motion-primitive/animate';
 import { colorMap } from '../../motion-primitive/colors';
@@ -21,7 +21,7 @@ export const Button = ({
 }: ButtonProps) => {
 	const variant = animate ? animateVariants[animate] : undefined;
 	return (
-		<AnimatePresence>
+		<>
 			<motion.button
 				disabled={disabled}
 				initial={variant?.initial}
@@ -36,7 +36,7 @@ export const Button = ({
 			>
 				{loading ? <Loader2 color='gray' size={20} /> : children}
 			</motion.button>
-		</AnimatePresence>
+		</>
 	);
 };
 `;

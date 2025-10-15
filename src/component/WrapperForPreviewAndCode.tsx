@@ -5,11 +5,19 @@ import { Copy, CopyCheck } from 'lucide-react';
 import { useState } from 'react';
 
 interface Props {
-	children: React.ReactNode;
 	value: string;
 	code: string;
+	preview: React.ReactNode;
+	codeBlock: React.ReactNode;
+	height?: number;
 }
-export default function WrapperForPreviewAndCode({ children, value, code }: Props) {
+export default function WrapperForPreviewAndCode({
+	value,
+	code,
+	preview,
+	codeBlock,
+	height = 300,
+}: Props) {
 	const [isCopy, setIsCopy] = useState<boolean>(false);
 	const handleCopyCode = async (code: string) => {
 		try {
@@ -20,13 +28,13 @@ export default function WrapperForPreviewAndCode({ children, value, code }: Prop
 			console.error('Error when copying!');
 		}
 	};
-
 	return (
 		<div
 			className={clsx(
-				value === 'code' && 'border-t-30',
-				'border-edge relative flex h-[300px] w-[600px] max-w-[600px] flex-col items-center justify-center gap-5 rounded border-8 shadow shadow-neutral-400'
+				'border-t-30',
+				'border-edge relative flex w-[600px] max-w-[600px] items-stretch rounded border-8 shadow shadow-neutral-400'
 			)}
+			style={{ height }}
 		>
 			{value === 'code' && (
 				<button
@@ -37,7 +45,13 @@ export default function WrapperForPreviewAndCode({ children, value, code }: Prop
 					{isCopy ? <CopyCheck size={19} /> : <Copy size={19} />}
 				</button>
 			)}
-			{children}
+			<div className='h-full w-full overflow-hidden'>
+				{value === 'code' ? (
+					codeBlock
+				) : (
+					<div className='flex  w-full items-center justify-center' style={{height}}>{preview}</div>
+				)}
+			</div>
 		</div>
 	);
 }
