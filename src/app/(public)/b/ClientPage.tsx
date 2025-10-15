@@ -12,11 +12,12 @@ import Code from '@/component/export-component/code/Code';
 
 export default function ClientPage() {
 	const [value, setValue] = useState<string>('preview');
-	const howToUse = `<Button color='blue' animate='fadeIn'>hello world</Button>`;
 	return (
 		<div className='border-edge flex h-[600px] w-full flex-col items-center gap-5'>
+			{/* header */}
 			<div className='w-full text-4xl'>Button</div>
 			<i className='w-full'>- the button component with customizable animations.</i>
+			{/* section - preview and code */}
 			<div className='w-full text-2xl'>Preview and code</div>
 			<MenuTab value={value} setValue={setValue} />
 			<WrapperForPreviewAndCode
@@ -29,8 +30,8 @@ export default function ClientPage() {
 				}
 				codeBlock={<Code code={code} animate='fadeIn' />}
 			/>
+			{/* section - how to use */}
 			<div className='w-full text-2xl'>How to use</div>
-
 			<WrapperForPreviewAndCode
 				value='code'
 				code={`<Button color='blue' animate='fadeIn'>hello world</Button>`}
@@ -42,6 +43,7 @@ export default function ClientPage() {
 					/>
 				}
 			/>
+			{/* section - details */}
 			<div className='w-full text-2xl'>Custom details</div>
 			<div className='border-edge grid w-full grid-cols-3 rounded border-2'>
 				<div className='border-edge flex flex-col border-r-2'>
