@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Header() {
 	return (
-		<div className='flex w-full items-center justify-between'>
+		<div className='sticky top-0 z-50 bg-background/95 flex w-full items-center justify-between'>
 			<Link href='/' className='relative h-[100px] w-[100px] 2xl:h-[140px] 2xl:w-[140px]'>
 				<Image fill alt='logo' src='/logo/hard.png' className='absolute' />
 			</Link>

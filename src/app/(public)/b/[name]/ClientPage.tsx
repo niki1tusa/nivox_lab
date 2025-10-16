@@ -2,16 +2,23 @@
 
 import { useState } from 'react';
 
-import MenuTab from '../../../component/MenuTab';
-import WrapperForPreviewAndCode from '../../../component/WrapperForPreviewAndCode';
-import { code } from '../../../data/code.data';
+import { COMPONENTS, TComponentsName } from '@/config/components.config';
 
-import { Button } from '@/component/export-component/button/Button';
-import { BUTTON_DATA } from '@/component/export-component/button/button.data';
-import Code from '@/component/export-component/code/Code';
+import MenuTab from '@/component/MenuTab';
+import WrapperForPreviewAndCode from '@/component/WrapperForPreviewAndCode';
+import Button from '@/component/ui/button/Button';
+import { BUTTON_DATA } from '@/component/ui/button/button.data';
+import Code from '@/component/ui/code/Code';
+import { code } from '@/data/code.data';
 
-export default function ClientPage() {
+export default function ClientPage({ name }: { name: TComponentsName }) {
 	const [value, setValue] = useState<string>('preview');
+
+	const current = COMPONENTS[name];
+	if (!current) {
+		return <div>Component not found!</div>;
+	}
+	const Component = current.component;
 	return (
 		<div className='border-edge flex h-[600px] w-full flex-col items-center gap-5'>
 			{/* header */}
@@ -24,9 +31,7 @@ export default function ClientPage() {
 				value={value}
 				code={code}
 				preview={
-					<Button color='blue' animate='fadeIn'>
-						Nivox UI
-					</Button>
+					<Component/>
 				}
 				codeBlock={<Code code={code} animate='fadeIn' />}
 			/>

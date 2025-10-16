@@ -1,8 +1,8 @@
 class PagesConfig {
 	HOME = '/';
 	BLOCKS = '/b';
-	BLOCK(id: string) {
-		return `${this.BLOCKS}/${id}`;
+	BLOCK(name: string) {
+		return `${this.BLOCKS}/${name}`;
 	}
 	DOCS = '/d';
 	CONSTRUCTOR = '/c';

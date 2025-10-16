@@ -9,7 +9,7 @@ import { colorMap } from '../../motion-primitive/colors';
 
 import { IButtonProps } from './button.types';
 
-export const Button = ({
+export default function Button({
 	type = 'button',
 	children,
 	style = 'default',
@@ -18,7 +18,7 @@ export const Button = ({
 	animate,
 	loading = false,
 	disabled = false,
-}: IButtonProps) => {
+}: IButtonProps) {
 	const variant = animate ? animateVariants[animate] : undefined;
 	return (
 		<motion.button
@@ -36,4 +36,4 @@ export const Button = ({
 			{loading ? <Loader2 color='gray' size={20} /> : children}
 		</motion.button>
 	);
-};
+}

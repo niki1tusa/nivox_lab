@@ -2,14 +2,14 @@ import { Play } from 'lucide-react';
 
 import Chart from '@/component/Chart';
 import Title from '@/component/Title';
-import { Button } from '@/component/export-component/button/Button';
+import { Button } from '@/component/ui/button/Button';
 import { ABOUT_DATA } from '@/data/about.data';
 
 // Landing
 export default function Home() {
 	return (
 		<div className='flex h-screen flex-col items-center gap-5'>
-		<span className='text-2xl font-bold 2xl:text-5xl'>
+			<span className='text-2xl font-bold 2xl:text-5xl'>
 				<span className='text-foreground-muted'>Nivox Lab</span> - is a library of ready-made
 				<br /> ui blocks to speed up development
 			</span>
