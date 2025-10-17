@@ -19,7 +19,7 @@ export default function ClientPage({ name }: { name: TComponentsName }) {
 	if (!current) {
 		return <div>Component not found!</div>;
 	}
-	const Component = current.component;
+	const { component: Component, defaultProps } = current;
 
 	return (
 		<div className='border-edge flex h-[600px] w-full flex-col items-center gap-5'>
@@ -32,7 +32,7 @@ export default function ClientPage({ name }: { name: TComponentsName }) {
 			<WrapperForPreviewAndCode
 				value={value}
 				code={code}
-				preview={<Component {...current.defaultProps} />}
+				preview={<Component {...defaultProps} />}
 				codeBlock={<Code code={code} animate='fadeIn' />}
 			/>
 			{/* section - how to use */}
@@ -55,7 +55,7 @@ export default function ClientPage({ name }: { name: TComponentsName }) {
 					<span className='border-edge bg-edge/30 border-b-2 px-2 py-1'>Prop</span>
 					<div>
 						{BUTTON_DATA.map(item => (
-							<div key={item.prop} className='border-edge h-[35] border-b-2 px-2 py-1'>
+							<div key={item.prop} className='border-edge h-[35px] border-b-2 px-2 py-1'>
 								{item.prop}
 							</div>
 						))}

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
-import Title from '@/components/Title';
-
 import { BLOCKS_DATA } from '@/data/blocks.data';
+import Title from '@/components/Title';
 
 interface Props {
 	children: React.ReactNode;
@@ -10,8 +9,8 @@ interface Props {
 export const ON_THIS_PAGE_DATA = ['Preview', 'How to use', 'Custom details'];
 export default function layout({ children }: Props) {
 	return (
-		<div className='grid grid-cols-[1fr_2fr_1fr]'>
-			<div className='sticky top-0 flex flex-col items-start'>
+		<div className='grid grid-cols-[1fr_2fr_1fr] '>
+			<div className='flex flex-col items-start sticky top-0'>
 				<Title>Blocks</Title>
 				<div className='flex flex-col'>
 					{BLOCKS_DATA.map(item => (

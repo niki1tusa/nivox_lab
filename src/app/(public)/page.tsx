@@ -5,6 +5,8 @@ import Title from '@/components/Title';
 import Button from '@/components/ui/button/Button';
 
 import { ABOUT_DATA } from '@/data/about.data';
+import Link from 'next/link';
+import { PAGES } from '@/config/pages.config';
 
 // Landing
 export default function Home() {
@@ -15,7 +17,7 @@ export default function Home() {
 				<br /> ui blocks to speed up development
 			</span>
 			<Button color='blue' animate='fadeIn'>
-				Get started <Play size={18} />
+				<Link href={PAGES.BLOCKS}>Get started <Play size={18} /></Link>
 			</Button>
 			<div className='mt-5 grid grid-cols-4 gap-1 text-[12px]'>
 				{ABOUT_DATA.map(item => (
