@@ -1,24 +1,31 @@
 import dynamic from 'next/dynamic';
 
-import { IButtonProps } from '@/component/ui/button/button.types';
-import { ICodeProps } from '@/component/ui/code/code.types';
+import { IButtonProps } from '@/components/ui/button/button.types';
+import { ICodeProps } from '@/components/ui/code/code.types';
+import { IInputProps } from '@/components/ui/input/input.types';
+import { createComponent } from './helper';
 
 export const COMPONENTS = {
 	button: {
-		component: dynamic<IButtonProps>(() => import('@/component/ui/button/Button')),
+		component: createComponent<IButtonProps>(dynamic<IButtonProps>(() => import('@/components/ui/button/Button')),
 		defaultProps: {
 			color: 'blue',
 			animate: 'fadeIn',
 			children: 'Nivox UI',
-		},
+		}) 
 	},
-    	code: {
-		component: dynamic<ICodeProps>(() => import('@/component/ui/code/Code')),
+	code: {
+		component: dynamic<ICodeProps>(() => import('@/components/ui/code/Code')),
 		defaultProps: {
-			color: 'blue',
 			animate: 'fadeIn',
-			children: 'Nivox UI',
+			code: '<h1>Hello world!</h1>',
 		},
 	},
-};
-export type TComponentsName = keyof typeof COMPONENTS
+	textInput: {
+		component: dynamic<IInputProps>(() => import('@/components/ui/input/TextInput')),
+		defaultProps: {
+			label: 'text',
+		},
+	},
+}
+export type TComponentsName = keyof typeof COMPONENTS;

@@ -1,5 +1,5 @@
-import { animateVariants } from '@/component/motion-primitive/animate';
-import { colorMap } from '@/component/motion-primitive/colors';
+import { animateVariants } from '@/components/motion-primitive/animate';
+import { colorMap } from '@/components/motion-primitive/colors';
 
 export interface IButtonProps {
 	type?: 'button' | 'submit' | 'reset';

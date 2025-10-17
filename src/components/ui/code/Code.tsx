@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
 import { Highlight, themes } from 'prism-react-renderer';
 
+import { animateVariants } from '@/components/motion-primitive/animate';
+
 import { ICodeProps } from './code.types';
-import { animateVariants } from '@/component/motion-primitive/animate';
 
 export default function Code({ code, animate }: ICodeProps) {
 	const variant = animate ? animateVariants[animate] : undefined;

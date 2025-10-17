@@ -8,7 +8,8 @@ export const metadata: Metadata = {
 	title: `${SITE_NAME} | Blocks`,
 };
 
-const COMPONENTS = ['button', 'code', 'accordion'];
+// TODO: получать ключи из components.config
+const COMPONENTS = ['button', 'code', 'accordion', 'TextInput'];
 export default function BlocksPage() {
 	// list componenet
 	return (

@@ -1,8 +1,9 @@
 import { Play } from 'lucide-react';
 
-import Chart from '@/component/Chart';
-import Title from '@/component/Title';
-import { Button } from '@/component/ui/button/Button';
+import Chart from '@/components/Chart';
+import Title from '@/components/Title';
+import Button from '@/components/ui/button/Button';
+
 import { ABOUT_DATA } from '@/data/about.data';
 
 // Landing

@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 
+import MenuTab from '@/components/MenuTab';
+import WrapperForPreviewAndCode from '@/components/WrapperForPreviewAndCode';
+import Button from '@/components/ui/button/Button';
+import { BUTTON_DATA } from '@/components/ui/button/button.data';
+import Code from '@/components/ui/code/Code';
+
 import { COMPONENTS, TComponentsName } from '@/config/components.config';
 
-import MenuTab from '@/component/MenuTab';
-import WrapperForPreviewAndCode from '@/component/WrapperForPreviewAndCode';
-import Button from '@/component/ui/button/Button';
-import { BUTTON_DATA } from '@/component/ui/button/button.data';
-import Code from '@/component/ui/code/Code';
 import { code } from '@/data/code.data';
 
 export default function ClientPage({ name }: { name: TComponentsName }) {
@@ -19,6 +20,7 @@ export default function ClientPage({ name }: { name: TComponentsName }) {
 		return <div>Component not found!</div>;
 	}
 	const Component = current.component;
+
 	return (
 		<div className='border-edge flex h-[600px] w-full flex-col items-center gap-5'>
 			{/* header */}
@@ -30,9 +32,7 @@ export default function ClientPage({ name }: { name: TComponentsName }) {
 			<WrapperForPreviewAndCode
 				value={value}
 				code={code}
-				preview={
-					<Component/>
-				}
+				preview={<Component {...current.defaultProps} />}
 				codeBlock={<Code code={code} animate='fadeIn' />}
 			/>
 			{/* section - how to use */}
