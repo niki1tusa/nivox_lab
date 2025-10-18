@@ -1,12 +1,14 @@
 interface IBlocksItem {
-	id: 1;
+	id: number;
 	title: string;
-	link: string;
 }
-export const BLOCKS_DATA: IBlocksItem[] = [
+export const BLOCK_LIST: IBlocksItem[] = [
 	{
 		id: 1,
 		title: 'Button',
-		link: '/',
+	},
+	{
+		id: 2,
+		title: 'TextInput',
 	},
 ];

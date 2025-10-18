@@ -1,15 +1,22 @@
 import type { Metadata } from 'next';
 
-import ClientPage from './ClientPage';
-import { TComponentsName } from '@/config/components.config';
+import { TComponentsName } from '@/config/Ui.config';
+import { SITE_NAME } from '@/config/seo.config';
 
-export const metadata: Metadata = {
-	title: 'name',
-};
-interface Props {
-	params: Promise<{ name: TComponentsName}>;
+import UiCard from './UiCard';
+
+function capitalize(name: string) {
+	return name.charAt(0).toUpperCase() + name.slice(1);
 }
-export default async function BlockPage({ params }: Props) {
-	const { name } = await params;
-	return <ClientPage name={name}/>;
+interface Props {
+	params: { name: TComponentsName };
+}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	return {
+		title: `${SITE_NAME} | ${capitalize(params.name)}`,
+	};
+}
+
+export default  function BlockPage({ params }: Props) {
+	return <UiCard name={params.name} />;
 }
