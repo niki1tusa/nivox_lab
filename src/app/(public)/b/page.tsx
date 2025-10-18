@@ -3,10 +3,9 @@ import Link from 'next/link';
 
 import Title from '@/components/Title';
 
+import { componentList } from '@/config/Ui.config';
 import { PAGES } from '@/config/pages.config';
 import { SITE_NAME } from '@/config/seo.config';
-
-import { BLOCK_LIST } from '@/data/blocks.data';
 
 export const metadata: Metadata = {
 	title: `${SITE_NAME} | Blocks`,
@@ -14,16 +13,16 @@ export const metadata: Metadata = {
 
 export default function BlocksPage() {
 	return (
-		<div className='text-lg font-bold flex flex-col items-center gap-5'>
+		<div className='flex flex-col items-center gap-5 text-lg font-bold'>
 			<Title>Block List</Title>
-			<div className='flex flex-col  gap-3'>
-				{BLOCK_LIST.map(block => (
+			<div className='flex flex-col gap-3'>
+				{componentList.map((block, i) => (
 					<Link
-						className='border-edge w-[300px] text-center rounded border-2 px-3 py-2 hover:bg-gray-100 transition-colors'
-						key={block.id}
-						href={PAGES.BLOCK(block.title)}
+						className='border-edge w-[300px] rounded border-2 px-3 py-2 text-center transition-colors hover:bg-gray-100'
+						key={i}
+						href={PAGES.BLOCK(block)}
 					>
-						{block.title.charAt(0) + block.title.slice(1)}
+						{block.charAt(0) + block.slice(1)}
 					</Link>
 				))}
 			</div>

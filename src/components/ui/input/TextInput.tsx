@@ -1,10 +1,35 @@
+'use client';
+
+import clsx from 'clsx';
+import { useId } from 'react';
+
 import { ITextInputProps } from './text-input.types';
 
-export default function TextInput({ label, placeholder = 'Enter text...' }: ITextInputProps) {
+export default function TextInput({
+	label,
+	placeholder = 'Enter text...',
+	query,
+	setQuery,
+}: ITextInputProps) {
+	const id = useId();
 	return (
-		<span>
-			{label && <label>{label}</label>}
-			<input type='text' placeholder={placeholder} className='' />
+		<span className='flex items-center gap-2'>
+			{label && (
+				<label htmlFor={id} className='text-lg'>
+					{label}
+				</label>
+			)}
+			<input
+				id={id}
+				value={query ?? ''}
+				onChange={e => setQuery?.(e.target.value)}
+				type='text'
+				placeholder={placeholder}
+				className={clsx(
+					'rounded-xl px-3 py-1.5 shadow ring-0 shadow-neutral-400 transition-all',
+					'focus:ring-sky focus:shadow-sky focus:ring-1 focus:ring-offset-0 focus:outline-none'
+				)}
+			/>
 		</span>
 	);
 }
