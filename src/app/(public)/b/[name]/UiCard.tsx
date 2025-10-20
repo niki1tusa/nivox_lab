@@ -27,7 +27,7 @@ export default function UiCard({ name }: { name: TComponentsName }) {
 			<i className='w-full'>- {description}.</i>
 			{/* section - preview and code */}
 			<div className='w-full text-2xl'>Preview and code</div>
-			<MenuTab value={value} setValue={setValue} />
+			<MenuTab value={value} setValue={setValue} items={['preview', 'code']}/>
 			<WrapperForPreviewAndCode
 				value={value}
 				code={code}

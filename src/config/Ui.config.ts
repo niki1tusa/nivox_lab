@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
-import { ACCORDION_CODE, ACCORDION_DATA } from '@/components/ui/accordion/accordion.data';
-import { IAccordionProps } from '@/components/ui/accordion/accordion.types';
+// import { ACCORDION_CODE, ACCORDION_DATA } from '@/components/ui/accordion/accordion.data';
+// import { IAccordionProps } from '@/components/ui/accordion/accordion.types';
 import { BUTTON_CODE, BUTTON_DATA } from '@/components/ui/button/button.data';
 import { IButtonProps } from '@/components/ui/button/button.types';
 import { INPUT_TEXT_CODE, INPUT_TEXT_DATA } from '@/components/ui/input/text-input.data';
@@ -32,22 +32,22 @@ export const REGISTRY = {
 		howToUse: `<TextInput label='Enter your name...'/>`,
 		description: 'the input focus in text enter',
 	}),
-	accordion: defineUiItem<IAccordionProps>({
-		component: dynamic(() => import('@/components/ui/accordion/Accordion')),
-		defaultProps: {
-			data: [
-				{ id: 1, heading: 'About', title: 'We are sure developer company' },
-				{ id: 2, heading: 'Contact', title: '+7 999 888 66-77' },
-			],
-		},
-		description: 'it is complex component',
-		howToUse: `<Accordion data={[
-				{ id: 1, heading: 'About', title: 'We are sure developer company' },
-				{ id: 2, heading: 'Contact', title: '+7 999 888 66-77' }
-				 ]}/>`,
-		code: ACCORDION_CODE,
-		details: ACCORDION_DATA,
-	}),
+	// accordion: defineUiItem<IAccordionProps>({
+	// 	component: dynamic(() => import('@/components/ui/accordion/Accordion')),
+	// 	defaultProps: {
+	// 		data: [
+	// 			{ id: 1, heading: 'About', title: 'We are sure developer company' },
+	// 			{ id: 2, heading: 'Contact', title: '+7 999 888 66-77' },
+	// 		],
+	// 	},
+	// 	description: 'it is complex component',
+	// 	howToUse: `<Axccordion data={[
+	// 			{ id: 1, heading: 'About', title: 'We are sure developer company' },
+	// 			{ id: 2, heading: 'Contact', title: '+7 999 888 66-77' }
+	// 			 ]}/>`,
+	// 	code: ACCORDION_CODE,
+	// 	details: ACCORDION_DATA,
+	// }),
 };
 
 export type TComponentsName = keyof typeof REGISTRY;
