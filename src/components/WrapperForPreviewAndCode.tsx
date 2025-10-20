@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { Copy, CopyCheck } from 'lucide-react';
 import { useState } from 'react';
 
+import MenuTab from './MenuTab';
+
 interface Props {
 	value: string;
 	code: string;
@@ -19,6 +21,8 @@ export default function WrapperForPreviewAndCode({
 	height = 300,
 }: Props) {
 	const [isCopy, setIsCopy] = useState<boolean>(false);
+	// TODO: должно передавать isShow для срабатывания анимации fadeIn + смотреть motion-primitive
+	const [isShow, setIsShow] = useState<string>('show');
 	const handleCopyCode = async (code: string) => {
 		try {
 			navigator.clipboard.writeText(code);
@@ -37,13 +41,12 @@ export default function WrapperForPreviewAndCode({
 			)}
 			style={{ height }}
 		>
-			{value === 'preview' && (
+			{/* tools */}
+			{value === 'preview' ? (
 				<div className='absolute -top-7 right-0 flex items-center gap-1.5 text-sm'>
-					<button className='rounded border border-gray-400 bg-white px-1'>Show</button>
-					<button className='rounded border px-1 border-gray-400'>Hide</button>
+					<MenuTab items={['show', 'hide']} value={isShow} setValue={setIsShow} />
 				</div>
-			)}
-			{value === 'code' && (
+			) : (
 				<button
 					className='absolute -top-6 right-0 transition-all'
 					title='Copy code'
@@ -52,6 +55,7 @@ export default function WrapperForPreviewAndCode({
 					{isCopy ? <CopyCheck size={19} /> : <Copy size={19} />}
 				</button>
 			)}
+			{/* code section  */}
 			<div className='h-full w-full overflow-hidden'>
 				{value === 'code' ? (
 					codeBlock

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Manrope, Roboto_Condensed } from 'next/font/google';
 
+import AnimatedLayout from './(public)/AnimatedLayout';
+
 import './globals.css';
 
 const ManropeSans = Manrope({
@@ -36,7 +38,7 @@ export default function RootLayout({
 			<body
 				className={`${ManropeSans.variable} ${JetBrainsMono.variable} ${RobotoCondensed.variable} antialiased`}
 			>
-				{children}
+				<AnimatedLayout>{children}</AnimatedLayout>
 			</body>
 		</html>
 	);
