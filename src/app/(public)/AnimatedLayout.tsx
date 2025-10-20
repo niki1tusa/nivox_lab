@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 
 export default function AnimatedLayout({ children }: { children: React.ReactNode }) {
 	const pathname = usePathname();
-    // TODO: лагает при перехоже между страницами
 	return (
 		<AnimatePresence mode='wait'>
 			<motion.div
