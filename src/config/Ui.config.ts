@@ -12,12 +12,14 @@ import { defineUiItem } from './helper';
 export const REGISTRY = {
 	button: defineUiItem<IButtonProps>({
 		component: dynamic(() => import('@/components/ui/button/Button')),
+
 		code: BUTTON_CODE,
 		defaultProps: {
 			color: 'blue',
 			animate: 'fadeIn',
 			children: 'Nivox UI',
 		},
+		category: 'base',
 		description: 'the button component with customizable animations',
 		howToUse: "<Button color='blue' animate='fadeIn'>hello world</Button>",
 		details: BUTTON_DATA,
@@ -27,6 +29,7 @@ export const REGISTRY = {
 		defaultProps: {
 			label: 'Text',
 		},
+		category: 'base',
 		code: INPUT_TEXT_CODE,
 		details: INPUT_TEXT_DATA,
 		howToUse: `<TextInput label='Enter your name...'/>`,
@@ -39,8 +42,10 @@ export const REGISTRY = {
 				{ id: 1, heading: 'About', title: 'We are sure developer company' },
 				{ id: 2, heading: 'Contact', title: '+7 999 888 66-77' },
 			],
+			animate: 'fadeIn',
 		},
 		description: 'it is complex component',
+		category: 'complex',
 		howToUse: `<Axccordion data={[
 				{ id: 1, heading: 'About', title: 'We are sure developer company' },
 				{ id: 2, heading: 'Contact', title: '+7 999 888 66-77' }
@@ -51,4 +56,10 @@ export const REGISTRY = {
 };
 
 export type TComponentsName = keyof typeof REGISTRY;
-export const componentList = Object.keys(REGISTRY);
+export const complexComponents = Object.entries(REGISTRY)
+	.filter(([_, item]) => item.category === 'complex')
+	.map(([key]) => key);
+
+export const baseComponents = Object.entries(REGISTRY)
+	.filter(([_, item]) => item.category === 'base')
+	.map(([key]) => key);

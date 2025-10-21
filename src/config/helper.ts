@@ -9,6 +9,7 @@ export interface IUiItem<T> {
 	component: ComponentType<T>;
 	defaultProps: T;
 	description: string;
+	category: 'base' | 'complex';
 	howToUse: string;
 	code: string;
 	details: IDetails[];

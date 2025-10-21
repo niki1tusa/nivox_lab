@@ -1,6 +1,6 @@
 'use client';
 
-import { ComponentType, useState } from 'react';
+import { ComponentType, useRef, useState } from 'react';
 
 import MenuTab from '@/components/MenuTab';
 import WrapperForPreviewAndCode from '@/components/WrapperForPreviewAndCode';
@@ -13,7 +13,9 @@ import UiCardDetails from './UiCardDetails';
 
 export default function UiCard({ name }: { name: TComponentsName }) {
 	const [value, setValue] = useState<string>('preview');
-
+	const previewRef = useRef(null);
+	const howToUseRef = useRef(null);
+	const detailsRef = useRef(null);
 	const current = pickUiItem(REGISTRY, name);
 	if (!current) {
 		return <div>Component not found!</div>;
@@ -27,7 +29,7 @@ export default function UiCard({ name }: { name: TComponentsName }) {
 			<i className='w-full'>- {description}.</i>
 			{/* section - preview and code */}
 			<div className='w-full text-2xl'>Preview and code</div>
-			<MenuTab value={value} setValue={setValue} items={['preview', 'code']}/>
+			<MenuTab value={value} setValue={setValue} items={['preview', 'code']} />
 			<WrapperForPreviewAndCode
 				value={value}
 				code={code}

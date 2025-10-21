@@ -15,6 +15,7 @@
 	--surface-prime: #ffffff;
 	--surface-secondary: #f1f5f9;
 	--edge: #e5e7eb;
+	--muted-edge: #9ca3af;
 	--foreground: #0b1220;
 	--foreground-muted: #475569;
 	/* brand  */
@@ -28,6 +29,7 @@
 	--surface-prime: #0f172a;
 	--surface-secondary: #111827;
 	--edge: #1f2937;
+	--muted-edge: #9ca3af;
 	--foreground: #e6edf3;
 	--foreground-muted: #94a3b8;
 	/* brand */
@@ -42,6 +44,7 @@
 	--color-surface-primary: var(--surface-prime);
 	--color-surface-muted: var(--surface-secondary);
 	--color-edge: var(--edge);
+	--color-muted-edge: var(--muted-edge);
 	--color-foreground-muted: var(--foreground-muted);
 	/* brand */
 	--color-primary: var(--primary);
@@ -51,7 +54,7 @@
 	/* fonts */
 	--font-sans: var(--font-manrope);
 	--font-mono: var(--font-jetbrains-mono);
-	--font-heading: var(--font-roboto-cond)
+	--font-heading: var(--font-roboto-cond);
 }
 body {
 	background: var(--background);
@@ -60,6 +63,8 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-button, input, textarea{
-	cursor: pointer
+button,
+input,
+textarea {
+	cursor: pointer;
 }

@@ -36,25 +36,27 @@ export default function WrapperForPreviewAndCode({
 	return (
 		<div
 			className={clsx(
-				'border-t-35',
-				'border-edge relative flex w-[600px] max-w-[600px] items-stretch rounded border-8 shadow shadow-neutral-400'
+				'border-edge flex w-[600px] max-w-[600px] flex-col items-stretch rounded border-8 border-t-0 shadow shadow-neutral-400'
 			)}
 			style={{ height }}
 		>
 			{/* tools */}
-			{value === 'preview' ? (
-				<div className='absolute -top-7 right-0 flex items-center gap-1.5 text-sm'>
-					<MenuTab items={['show', 'hide']} value={isShow} setValue={setIsShow} />
-				</div>
-			) : (
-				<button
-					className='absolute -top-6 right-0 transition-all'
-					title='Copy code'
-					onClick={() => handleCopyCode(code)}
-				>
-					{isCopy ? <CopyCheck size={19} /> : <Copy size={19} />}
-				</button>
-			)}
+			<div className='bg-edge z-10 h-[35px] w-full relative'>
+				{value === 'preview' ? (
+					<div className='max-h-[35px] absolute top-1 right-0  text-sm'>
+						<MenuTab items={['show', 'hide']} value={isShow} setValue={setIsShow} />
+					</div>
+				) : (
+					<button
+						className='absolute top-1 right-0 transition-all'
+						title='Copy code'
+						onClick={() => handleCopyCode(code)}
+					>
+						{isCopy ? <CopyCheck size={19} /> : <Copy size={19} />}
+					</button>
+				)}
+			</div>
+
 			{/* code section  */}
 			<div className='h-full w-full overflow-hidden'>
 				{value === 'code' ? (
