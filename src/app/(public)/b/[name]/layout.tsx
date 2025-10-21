@@ -11,7 +11,7 @@ interface Props {
 export default function layout({ children }: Props) {
 	return (
 		<div className='grid min-h-screen grid-cols-[1fr_2fr_1fr]'>
-			<div className='sticky top-[100px] z-40 flex flex-col items-start self-start'>
+			<div className='sticky top-[100px] 2xl:top-[140px] z-40 flex flex-col items-start self-start'>
 				<div className='text-foreground-muted flex items-center gap-2 text-lg font-bold'>
 					Blocks
 				</div>
@@ -27,7 +27,7 @@ export default function layout({ children }: Props) {
 				</div>
 			</div>
 			{children}
-			<div className='sticky top-[100px] z-40 flex flex-col items-start gap-2 self-start'>
+			<div className='sticky top-[100px] 2xl:top-[140px] z-40 flex flex-col items-start gap-2 self-start'>
 				<div className='text-foreground-muted flex items-center gap-2 text-lg font-bold'>
 					<TextAlignStart size={18} /> <span>On this page</span>
 				</div>

@@ -46,11 +46,6 @@ export default function UiCard({ name }: { name: TComponentsName }) {
 				preview={<Component {...defaultProps} />}
 				codeBlock={<Code code={code} animate='fadeIn' />}
 			/>
-			<div className='flex flex-col gap-5'>
-				{Array.from({ length: 10 }, (_, i) => 1 + i).map(item => (
-					<div key={item}>{item}</div>
-				))}
-			</div>
 			{/* section - how to use */}
 			<div ref={howToUseRef} className='w-full text-2xl'>
 				How to use
@@ -61,11 +56,6 @@ export default function UiCard({ name }: { name: TComponentsName }) {
 				preview={null}
 				codeBlock={<Code code={howToUse} animate='fadeIn' />}
 			/>
-			<div className='flex flex-col gap-5'>
-				{Array.from({ length: 10 }, (_, i) => 1 + i).map(item => (
-					<div key={item}>{item}</div>
-				))}
-			</div>
 			{/* section - details */}
 			<div ref={detailsRef} className='w-full text-2xl'>
 				Details
