@@ -2,9 +2,9 @@
 
 import { ComponentType, useEffect, useRef, useState } from 'react';
 
-import MenuTab from '@/components/MenuTab';
 import WrapperForPreviewAndCode from '@/components/WrapperForPreviewAndCode';
 import Code from '@/components/ui/code/Code';
+import Tabs from '@/components/ui/tabs/Tabs';
 
 import { REGISTRY, TComponentsName } from '@/config/Ui.config';
 import { pickUiItem } from '@/config/helper';
@@ -39,8 +39,9 @@ export default function UiCard({ name }: { name: TComponentsName }) {
 			<div ref={previewRef} className='w-full text-2xl'>
 				Preview and code
 			</div>
-			<MenuTab value={value} setValue={setValue} items={['preview', 'code']} />
+			<Tabs value={value} setValue={setValue} items={['preview', 'code']} />
 			<WrapperForPreviewAndCode
+				height={300}
 				value={value}
 				code={code}
 				preview={<Component {...defaultProps} />}
