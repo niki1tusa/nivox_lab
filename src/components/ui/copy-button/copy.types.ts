@@ -4,4 +4,5 @@ export interface ICopyProps {
 	children?: React.ReactNode;
 	code?: string;
 	color?: keyof typeof colorMap;
+	variant: 'outline' | 'neutral'
 }

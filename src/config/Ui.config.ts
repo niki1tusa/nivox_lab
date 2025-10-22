@@ -61,6 +61,7 @@ export const REGISTRY = {
 		component: dynamic(() => import('@/components/ui/copy-button/CopyButton')),
 		defaultProps: {
 			children: 'This copy button!',
+			variant: 'neutral'
 		},
 		description: 'it is copy button',
 		category: 'base',
@@ -75,7 +76,7 @@ export const REGISTRY = {
 			value: 'first',
 		},
 		description: 'it is tabs',
-		howToUse: `<Tabs items={['mail', 'phone']} value={isShow} setValue={setIsShow}/>`,
+		howToUse: `<Tabs items={['mail', 'phone']} />`,
 		category: 'complex',
 		code: TABS_CODE,
 		details: TABS_DATA,

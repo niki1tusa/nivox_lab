@@ -10,4 +10,5 @@ export interface IButtonProps {
 	animate?: keyof typeof animateVariants;
 	loading?: boolean;
 	disabled?: boolean;
+	onClick?: () => void;
 }

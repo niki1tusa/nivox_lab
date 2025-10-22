@@ -7,6 +7,7 @@ export const BUTTON_DATA = [
 	{ prop: 'animate', type: 'keyof typeof animateVariants', default: '-' },
 	{ prop: 'loading', type: 'boolean', default: 'false' },
 	{ prop: 'disabled', type: 'boolean', default: 'false' },
+		{ prop: 'onClick', type: '()=>void', default: '-' },
 ];
 export const BUTTON_CODE = `'use client';
 

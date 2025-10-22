@@ -18,10 +18,12 @@ export default function Button({
 	animate,
 	loading = false,
 	disabled = false,
+	onClick,
 }: IButtonProps) {
 	const variant = animate ? animateVariants[animate] : undefined;
 	return (
 		<motion.button
+			onClick={onClick}
 			disabled={disabled}
 			initial={variant?.initial}
 			animate={variant?.animate}

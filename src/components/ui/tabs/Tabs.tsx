@@ -1,8 +1,17 @@
+'use client'
 import clsx from 'clsx';
-import { ITabsProps } from './tabs.types';
 
-export default function Tabs({ value, setValue, items, className }: ITabsProps) {
-	const itemIndex = items.indexOf(value);
+import { ITabsProps } from './tabs.types';
+import { useState } from 'react';
+
+export default function Tabs({ value, defaultValue, onValueChange, items, className }: ITabsProps) {
+	const [internal, setInternal] = useState(defaultValue ?? items[0]);
+	const current = value ?? internal;
+	const set = (v: string) => {
+		if (onValueChange) onValueChange(v);
+		if (value === undefined) setInternal(v); // неконтролируемый режим
+	};
+	const itemIndex = items.indexOf(current);
 	const width = `${100 / items.length}%`;
 	return (
 		<div
@@ -21,8 +30,8 @@ export default function Tabs({ value, setValue, items, className }: ITabsProps) 
 				}}
 			/>
 			{items.map(item => (
-				<TabItem key={item} text={item} value={value} setValue={setValue} />
-			))} 
+				<TabItem key={item} text={item} value={current} setValue={set} />
+			))}
 		</div>
 	);
 }

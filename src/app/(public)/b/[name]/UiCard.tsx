@@ -39,7 +39,7 @@ export default function UiCard({ name }: { name: TComponentsName }) {
 			<div ref={previewRef} className='w-full text-2xl'>
 				Preview and code
 			</div>
-			<Tabs value={value} setValue={setValue} items={['preview', 'code']} />
+			<Tabs value={value} onValueChange={setValue} items={['preview', 'code']} />
 			<WrapperForPreviewAndCode
 				height={300}
 				value={value}
