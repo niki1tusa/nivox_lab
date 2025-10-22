@@ -6,8 +6,9 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 
 import { ICopyProps } from './copy.types';
+import { animateVariants } from '@/components/motion-primitive/animate';
 // TODO: сделать анимацию переиспользуемой
-export default function CopyButton({ children, code, color, variant }: ICopyProps) {
+export default function CopyButton({ children, code, color, variant, animate }: ICopyProps) {
 	const [isCopy, setIsCopy] = useState<boolean>(false);
 	const handleCopyCode = async (code: string) => {
 		try {
@@ -19,10 +20,12 @@ export default function CopyButton({ children, code, color, variant }: ICopyProp
 		}
 	};
 	const text = children ? `${children}` : code;
+	const framer = animate? animateVariants[animate]: undefined
 	return (
 		<div className='flex items-center gap-1'>
 			{children && children}
 			<motion.button
+			initial={framer?.animate}
 				whileHover={{
 					scale: 1.05,
 					transition: { duration: 0.1 },

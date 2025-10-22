@@ -8,4 +8,16 @@ export const animateVariants = {
 			transition: { type: 'spring', stiffness: 250, damping: 20, mass: 0.8 },
 		},
 	},
+	tab: {
+		animate: {
+			whileTab: { scale: 0.7 },
+			transition: { type: 'spring', stiffness: 420, damping: 24, mass: 0.6 },
+		},
+	},
+	hover: {
+		animate: {
+			whileHover: { scale: 1.1 },
+		},
+	},
 } as const;
+// TODO: попросить гайд по framer-motion у gpt
